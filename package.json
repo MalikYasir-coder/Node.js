@@ -15,10 +15,16 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "chacha": "echo \"Hello World\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "accessibility": "^4.5.8",
+    "chalk": "^6.0.0",
+    "express": "^5.2.1",
     "one-liner-joke": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
