@@ -21,6 +21,7 @@
   "dependencies": {
     "accessibility": "^4.5.8",
     "chalk": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
     "one-liner-joke": "^1.2.2"
   },

@@ -8,18 +8,36 @@
 //   res.end("Hello World");
 // });
 // server.listen(3000);
+// const express = require("express");
+// const app = express();
+// Creating Routes
+// app.get("/", (req, res) => {
+//   res.send("Home Page");
+// });
+// app.get("/about", (req, res) => {
+//   res.send("About Page");
+// });
+// app.get("/contact", (req, res) => {
+//   res.send("Contact Page");
+// });
 const express = require("express");
 const app = express();
-// Creating Routes
+app.use(function (req, res, next) {
+  console.log("User is signed in");
+  next();
+});
+app.use(function (req, res, next) {
+  console.log("User is signed on");
+  next();
+});
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
-app.get("/about", (req, res) => {
-  res.send("About Page");
+app.get("/about", (req, res, next) => {
+  return next(new Error("Something went wrong!"));
 });
-app.get("/contact", (req, res) => {
-  res.send("Contact Page");
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
 });
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+app.listen(3000);
