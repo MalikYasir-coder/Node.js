@@ -9,6 +9,9 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/profile/:username", (req, res) => {
+  res.send("Profile page for " + req.params.username);
+});
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
