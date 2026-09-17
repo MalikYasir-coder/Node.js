@@ -1,0 +1,24 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/MalikYasir-coder/Node.js#readme",
+  "bugs": {
+    "url": "https://github.com/MalikYasir-coder/Node.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MalikYasir-coder/Node.js.git"
+  },
+  "license": "ISC",
+  "author": "Malik Yasir",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
