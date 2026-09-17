@@ -10,7 +10,7 @@
 <body>
     <div class="main">
         <div class="form">
-            <form action="/create" method="POST">
+            <form action="/edit" method="POST">
                 <input type="text" name="title" placeholder="Enter a task..." />
                 <textarea name="body" placeholder="Enter a description..."></textarea>
                 <input type="submit" value="Create Task" />
@@ -25,6 +25,7 @@
                         <h3><%= task.title %></h3>
                         <p><%= task.body %></p>
                         <a href="/file/<%= task.title %>">Read More..</a>
+                        <a href="/edit/<%= task.title %>">Edit</a>
                         <button type="button">Delete</button>
                     </div>
                 <% }); %>
