@@ -10,31 +10,25 @@
 <body>
     <div class="main">
         <div class="form">
-            <form>
-                <input type="text" placeholder="Enter a task..." />
-                <textarea placeholder="Enter a description..."></textarea>
+            <form action="/create" method="POST">
+                <input type="text" name="title" placeholder="Enter a task..." />
+                <textarea name="body" placeholder="Enter a description..."></textarea>
                 <input type="submit" value="Create Task" />
             </form>
         </div>
         <div class="tasks">
-            <div class="task">
-                <h3>Task List</h3>
-                <p>Task description goes here.</p>
-                <button type="button">Delete</button>
-            </div>
-
-            <div class="task">
-                <h3>Task List</h3>
-                <p>Task description goes here.</p>
-                <button type="button">Delete</button>
-            </div>
-
-            <div class="task">
-                <h3>Task List</h3>
-                <p>Task description goes here.</p>
-                <button type="button">Delete</button>
-            </div>
-            <h3>No tasks available</h3>
+            <% if (tasks.length === 0) { %>
+                <h3>No tasks available</h3>
+            <% } else { %>
+                <% tasks.forEach(function(task) { %>
+                    <div class ="task">
+                        <h3><%= task.title %></h3>
+                        <p><%= task.body %></p>
+                        <a href="/file/<%= task.title %>">Read More..</a>
+                        <button type="button">Delete</button>
+                    </div>
+                <% }); %>
+            <% } %>
         </div>
     </div>
 </body>

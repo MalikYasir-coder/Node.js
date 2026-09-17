@@ -69,12 +69,12 @@ input[type="submit"]:hover {
 }
 .tasks {
   margin-top: 30px;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 }
 
 .task {
-    display: none;
+    /* display: none; */
   background: #ffffff;
   padding: 18px;
   border-radius: 10px;
