@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="/images/javascripts/stylesheets/style.css"> -->
+    <title>Task Management App</title>
 </head>
 <body>
-    <h1>Welcome to the  New Project</h1>
+    <div class="main">
+        <div class="form">
+            <form>
+                <input type="text" placeholder="Enter a task..." />
+                <textarea placeholder="Enter a description..."></textarea>
+                <input type="submit" value="Create Task" />
+            </form>
+        </div>
+        <div class="tasks">
+            <div class="task">
+                <h3>Task List</h3>
+                <p>Task description goes here.</p>
+                <button type="button">Delete</button>
+            </div>
+
+            <div class="task">
+                <h3>Task List</h3>
+                <p>Task description goes here.</p>
+                <button type="button">Delete</button>
+            </div>
+
+            <div class="task">
+                <h3>Task List</h3>
+                <p>Task description goes here.</p>
+                <button type="button">Delete</button>
+            </div>
+            <h3>No tasks available</h3>
+        </div>
+    </div>
 </body>
 </html>
