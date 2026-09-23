@@ -15,22 +15,15 @@
         <a class="nav-link" href="/">Back to Home</a>
         <h1 class="h1">All Users</h1>
         <div class="users">
-            <div class="user">
-                <div class="image">
+            <% users.forEach(function(user) { %>
+                <div class="user">
+                    <h3><%= user.name %></h3>
+                    <h5><%= user.email %></h5>
+                    <img src="<%= user.image %>" alt="User Image" class="user-image">
+                    <a href="/edit/<%= user._id %>">Edit User</a>
+                    <a class="delete-link" href="/delete/<%= user._id %>">Delete User</a>
                 </div>
-                <h3>Malik Yasir</h3>
-                <h5>malikyasirdev@gmail.com</h5>
-                <a href="">Edit User</a>
-                <a class="delete-link" href="">Delete User</a>
-            </div>
-            <div class="user">
-                <div class="image">
-                </div>
-                <h3>Malik Yasir</h3>
-                <h5>malikyasirdev@gmail.com</h5>
-                <a href="">Edit User</a>
-                <a class="delete-link" href="">Delete User</a>
-            </div>
+            <% }); %>
         </div>
     </div>
 </body>
