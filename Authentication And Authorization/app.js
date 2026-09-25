@@ -3,12 +3,13 @@ const app = express();
 const bcrypt = require("bcrypt");
 
 app.get("/", function (req, res) {
-  bcrypt.genSalt(10, function (err, salt) {
-    bcrypt.hash("password", salt, function (err, hash) {
-      console.log(hash); // yahan use karo, jahan "hash" available hai
-      res.send(hash); // response bhi yahin se bhejo
-    });
-  });
+  bcrypt.compare(
+    "password",
+    "$2b$10$i.V1CinUUCoL46YTASTNKe.gha.3iYdH/vbKNm.ZRVFqWwjOp3kbG",
+    function (err, result) {
+      console.log(result);
+    },
+  );
 });
 
 app.listen(3000, () => {
