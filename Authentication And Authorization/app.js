@@ -1,13 +1,10 @@
 const express = require("express");
-// const cookie = require("cookie-parser")
 const app = express();
-app.get("/", (req, res) => {
-  res.send("Malik Yasir");
-  //   res.send("Cookie has been set");
+const bcrypt = require("bcrypt");
+app.get("/", function (req, res) {
+  bcrypt.genSalt(10, function (err, salt) {
+    bycrypt.hash("pololololo", salt, function (err, hash) {});
+  });
 });
-app.get("/read", (req, res) => {
-  // console.log(req.cookie)
-  //   res.cookie("name", "Malik Yasir");
-  res.send("Cookie has been read");
-});
+
 app.listen(3000);
