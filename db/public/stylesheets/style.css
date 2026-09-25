@@ -159,3 +159,12 @@ body {
 .form input[type="submit"]:hover {
     background-color: #1d4ed8;
 }
+
+.form input.edit-button {
+    color: #111827;
+    background-color: #facc15;
+}
+
+.form input.edit-button:hover {
+    background-color: #eab308;
+}
