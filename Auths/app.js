@@ -42,6 +42,13 @@ app.post("/create", function (req, res) {
 //   });
 //   res.send(createduser);
 // });
+app.get("/login", function (req, res) {
+  res.render("login");
+});
+app.post("/login", async function (req, res) {
+  let user = await userModel.findOne({ email: req.body.email });
+  console.log(user);
+});
 app.get("/logout", function (req, res) {
   res.cookie("token", "");
   res.redirect("/");
