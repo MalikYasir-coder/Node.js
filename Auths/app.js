@@ -47,8 +47,17 @@ app.get("/login", function (req, res) {
 });
 app.post("/login", async function (req, res) {
   let user = await userModel.findOne({ email: req.body.email });
-  console.log(user);
+  bcrypt.compare(req.body.password, user.password, function (err, result) {
+    if (result) {
+      let token = jwt.sign({ email: user.email }, "shhhhhh");
+      res.cookie("token", token);
+      res.send("correct");
+    } else {
+      res.send("something went wrong");
+    }
+  });
 });
+
 app.get("/logout", function (req, res) {
   res.cookie("token", "");
   res.redirect("/");
