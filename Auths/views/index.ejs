@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Home Page</title>
   </head>
   <body>
-    <h1>Welcome to Authentication</h1>
+    <div class="wrapper">
+      <h1>Welcome to App</h1>
+      <form method="post" action="/create">
+        <input type="text" placeholder="Username" name="username" />
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <input type="number" placeholder="Age" name="age" />
+        <input type="submit" value="Create User" />
+      </form>
+    </div>
   </body>
 </html>
