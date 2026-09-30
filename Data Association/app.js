@@ -17,6 +17,22 @@ app.get("/create", async function (req, res) {
   });
   res.send(user);
 });
+app.get("/post/create", async function (req, res) {
+  let post = await postModel.create({
+    postdata: "My Data Is In PostData",
+    user: "6abd3876500d5e22006a4156",
+  });
+
+  let user = await userModel.findOne({ _id: "6abd3876500d5e22006a4156" });
+
+  if (!user) {
+    return res.send("User nahi mila, ID check karo");
+  }
+
+  user.posts.push(post._id);
+  await user.save();
+  res.send({ post, user });
+});
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
