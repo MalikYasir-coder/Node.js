@@ -9,7 +9,8 @@ const jwt = require("jsonwebtoken");
 const app = express(); // sabse pehle define karo
 const JWT_SECRET = process.env.JWT_SECRET || "shhhh";
 const crypto = require("crypto");
-const multer = require("multer");
+const multerconfig = require("./config/multerconfig");
+// const multer = require("multer");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -18,19 +19,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./public/images/uploads");
-  },
-  filename: function (req, file, cb) {
-    crypto.randomBytes(12, function (err, bytes) {
-      const fn = bytes.toString("hex") + path.extname(file.originalname);
-      cb(null, fn);
-    });
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./public/images/uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     crypto.randomBytes(12, function (err, bytes) {
+//       const fn = bytes.toString("hex") + path.extname(file.originalname);
+//       cb(null, fn);
+//     });
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 function requireLogin(req, res, next) {
   const token = req.cookies.token;
@@ -52,9 +53,9 @@ app.get("/", function (req, res) {
 app.get("/login", function (req, res) {
   res.render("login");
 });
-app.get("/test", function (req, res) {
-  res.render("test");
-});
+// app.get("/test", function (req, res) {
+//   res.render("test");
+// });
 app.post("/upload", upload.single("image"), function (req, res) {
   console.log(req.file);
   res.send("Received");

@@ -1,4 +1,6 @@
 const multer = require("multer");
+const path = require("path");
+const crypto = require("crypto");
 // diskstorage setup
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -6,12 +8,13 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     crypto.randomBytes(12, function (err, bytes) {
+      const fn = name.toString("hex") + path.extname(file.originalname);
       if (err) return cb(err);
-      cb(null, file.fieldname + "-" + raw.toString("hex"));
+      cb(null, fn);
     });
   },
 });
 
-const upload = multer({ storage: storage });
-
 //  export upload variable create
+const upload = multer({ storage: storage });
+module.exports = uploads;
